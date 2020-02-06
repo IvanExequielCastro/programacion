@@ -4,7 +4,7 @@ class Connection {
     function connect() {
         $userName = "root";
         $password = "";
-        $host = "127.0.0.1";
+        $host = "localhost";
         $database = "programacion3";
         $driver = "mysql";
         
@@ -54,7 +54,7 @@ class Connection {
             $bool1 = true;
         }
         return $bool1;
-    }
+    } 
 
     public function insert($name="undefined",  $price,$quantity) {
         $insertData ="insert into products (name,price,quantity) values ('$name','$price','$quantity') ";
