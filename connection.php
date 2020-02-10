@@ -19,7 +19,8 @@ class Connection {
     }
       
     function logger_error($e) {
-        $file = "err".getdate().".txt";
+        $fecha = time();
+        $file = "err".$fecha.".txt";
         $err = $e;
 
         $document = fopen($file ,'a');
@@ -27,6 +28,7 @@ class Connection {
     }
 
     public function createSoldProductsTable() {
+        $bool1 = false;
         $createTableQuery = "CREATE TABLE IF NOT EXISTS sold_products (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         sell_id INT(6)UNSIGNED,
@@ -37,16 +39,18 @@ class Connection {
         $connection = $this->connect();
         if (isset($connection)){
             $connection->exec($createTableQuery);
+            $bool1 = true;
         }
+        return $bool1;
     }
 
     public function createProducts(){
         $bool1 = false;
         $createTableQuery = "CREATE TABLE IF NOT EXISTS products (
-            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(120) NOT NULL,
-            price FLOAT(20,2),
-            quantity  int(11)
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(120) NOT NULL,
+        price FLOAT(20,2),
+        quantity  int(11)
         )";
         $connection = $this->connect();
         if (isset($connection)){

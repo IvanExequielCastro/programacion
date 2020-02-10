@@ -13,30 +13,26 @@ $result= $connection->llenarTabla();
     <head>
         <meta charset="utf-8">        
         <title>Programacion</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <header id="header">
-            <div class="container">
-                <h1 class="text-center">Servicio de ventas</h1>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+        <header>
+            <div>
+                <h1>Servicio de ventas</h1>
+                <ul>
+                    <li>
+                        <a href="index.html">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href=#>Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sales.html">Ventas</a>
+                    <li>
+                        <a href=#>Productos</a>
                     </li>   
                 </ul>
                 <br><br>
-                <a href="newProduct.html" class="btn btn-success btn-sm btn-block" type="button">Nuevo</a>  
+                <a href="newProduct.html" type="button">Nuevo</a>  
             </div>
         </header> 
-        <section id="hero">
-            <div class="hero-container">
-                <table class="table table-striped table-hover">
+        <section>
+            <div>
+                <table>
                     <thead>
                         <tr>
                         <th>ID</th>
@@ -54,8 +50,8 @@ $result= $connection->llenarTabla();
                         <td><?php echo $res["price"] ?></td>
                         <td><?php echo $res["quantity"] ?></td>
                         <td>
-                            <a class="btn btn-lg btn-warning btn-sm" href="<?php echo "edit.php?id=" . $res["id"]?>">Editar</a> 
-                            <a class="btn btn-lg btn-danger btn-sm" href="<?php echo "delete.php?id=" . $res["id"]?>">Eliminar</a>
+                            <a href="<?php echo "edit.php?id=" . $res["id"]?>">Editar</a> 
+                            <a href="<?php echo "delete.php?id=" . $res["id"]?>">Eliminar</a>
                         </td>
                         </tr>
                         <?php } ?>
@@ -63,9 +59,5 @@ $result= $connection->llenarTabla();
                 </table>
             </div>
         </section>
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/scripts.js"></script>
     </body>
 </html>
