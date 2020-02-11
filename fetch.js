@@ -15,26 +15,20 @@ form.addEventListener('submit', function(e){
         console.log(data)
         if(data === 'error'){
             answer.innerHTML = `
-            <div class="alert alert-dismissable alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×
-                    </button>
-                    <h4>
-                        Alert!
-                    </h4> <strong>Attention!</strong> You must fill all the fields.
+            <div>
+                <button type="button" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>Alert!</h4>
+                <strong>Attention!</strong> You must fill all the fields.
             </div>
-            `
+            `;
         }else{
             answer.innerHTML = `
-            <div class="alert alert-dismissable alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×
-                    </button>
-                    <h4>
-                        Successful!
-                    </h4> <strong>Perfect!</strong> You will be redirected.
+            <div>
+                <button type="button" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>Successful!</h4>
+                <strong>Perfect!</strong> You will be redirected.
             </div>
-            `
+            `;
             location.href="product.php";
         }
     });

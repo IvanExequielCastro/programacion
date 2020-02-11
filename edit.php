@@ -8,16 +8,15 @@ if(!isset($_GET["id"])){
 $id = $_GET["id"];
 
 $connection = new Connection();
-$con=$connection->connect();
+$connection->connect();
 
 $sentences = $connection->consulta($id);
 
-echo "ID ".$id;
-echo "<br>";
-echo "SENETENCES ".gettype($sentences);
-echo "<br>";
-echo "CONNECTION ".gettype($connection);
-echo "CONNECTION ".$connection->consulta(1);
+while($registro=$sentences->fetch(PDO::FETCH_ASSOC)){
+    echo "aca ".$registro["price"];
+};
+
+// print_r($sentences);
 
 if($sentences === FALSE){
 	echo "No se encontro el id = ".$id;
@@ -65,5 +64,6 @@ if($sentences === FALSE){
         </div>
 
         <script src="Validaciones.js"></script>
+        <script src="fetch.js"></script>
     </body>
 </html>

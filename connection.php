@@ -70,11 +70,18 @@ class Connection {
 
     public function consulta($idConsulta) {
         try {
-            $seleccionar = "SELECT * FROM products WHERE id =" . $idConsulta . ";";
+            $idConsulta = $idConsulta;
             $connection = $this->connect();
-            if (isset($connection)) {
-                return $connection->exec($seleccionar);
-            }
+            $connection->exec("SET CHARACTER SET utf8");
+            $sql = "select * from products where id =?;";
+            $resultado = $connection->prepare($sql);
+            $resultado->execute(array($idConsulta));
+            
+            // while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
+            //     echo "aca ".$registro["name"];
+            // };
+
+            return $resultado;
         } catch (PDOException $e) {
             print_r($e->getMessage());
         }        
