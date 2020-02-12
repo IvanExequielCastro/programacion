@@ -27,7 +27,7 @@ $result= $connection->llenarTabla();
                     </li>   
                 </ul>
                 <br><br>
-                <a href="newProduct.html" type="button">Nuevo</a>  
+                <a href="newProduct.html" type="button">Nuevo producto</a>  
             </div>
         </header> 
         <section>
@@ -39,7 +39,7 @@ $result= $connection->llenarTabla();
                         <th>Producto</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
-                        <th>Accion</th>
+                        <th>Opcion</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -13,10 +13,11 @@ $connection->connect();
 $sentences = $connection->consulta($id);
 
 while($registro=$sentences->fetch(PDO::FETCH_ASSOC)){
-    echo "aca ".$registro["price"];
+    $id = $registro["id"];
+    $name = $registro["name"];
+    $price = $registro["price"];
+    $quantity = $registro["quantity"];
 };
-
-// print_r($sentences);
 
 if($sentences === FALSE){
 	echo "No se encontro el id = ".$id;
@@ -35,24 +36,24 @@ if($sentences === FALSE){
         <div>
             <h2>Editar Producto</h2>
             <br>
-            <form method="post" action="saveData.php">
-                <input type="hidden" name="id" value="<?php echo $productList["id"]; ?>">
+            <form id="formulario" method="POST" action="put.php">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div>
-                    <label for="NAME">Nombre</label>
+                    <label for="name">Nombre</label>
                     <div>
-                        <input value="<?php echo $productList["name"] ?>" name="name" onblur="validation()" required type="text" id="fnamePro">
+                        <input value="<?php echo $name ?>" name="name" onblur="validation()" required type="text" id="fnamePro">
                     </div>
                 </div>
                 <div>
                     <label for="price">Precio</label>
                     <div>
-                        <input value="<?php echo $productList["price"] ?>" onkeypress="return validarNumero(event)" name="price" required type="text" id="price">
+                        <input value="<?php echo $price ?>" onkeypress="return validarNumero(event)" name="price" required type="text" id="price">
                     </div>
                 </div>
                 <div>
                     <label for="quantity">Cantidad</label>
                     <div>
-                        <input value="<?php echo $productList["quantity"] ?>" onkeypress="return validarNumero(event)" name="quantity" required type="text" id="quantity">
+                        <input value="<?php echo $quantity ?>" onkeypress="return validarNumero(event)" name="quantity" required type="text" id="quantity">
                     </div>
                 </div>
                 <div>
@@ -60,7 +61,7 @@ if($sentences === FALSE){
                     <a href="product.php"value="cancelar">Cancelar</a>
                 </div>
             </form>
-        <div id="respuesta"></div>
+        <div id="respuesta" value="edit"></div>
         </div>
 
         <script src="Validaciones.js"></script>

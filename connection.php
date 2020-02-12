@@ -68,6 +68,27 @@ class Connection {
         }
     }
 
+    public function update($sql) {
+        $updateData = $sql;;
+        // $connection = $this->connect();
+        // if (isset($connection)){
+        //     $connection->exec($updateData);
+        // }
+
+        try {
+            // $idConsulta = $idConsulta;
+            $connection = $this->connect();
+            $connection->exec("SET CHARACTER SET utf8");
+            // $sql = "select * from products where id =?;";
+            $resultado = $connection->prepare($updateData);
+            // $resultado->execute(array($idConsulta));
+
+            return $resultado;
+        } catch (PDOException $e) {
+            print_r($e->getMessage());
+        }   
+    }
+
     public function consulta($idConsulta) {
         try {
             $idConsulta = $idConsulta;
@@ -76,10 +97,6 @@ class Connection {
             $sql = "select * from products where id =?;";
             $resultado = $connection->prepare($sql);
             $resultado->execute(array($idConsulta));
-            
-            // while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
-            //     echo "aca ".$registro["name"];
-            // };
 
             return $resultado;
         } catch (PDOException $e) {
