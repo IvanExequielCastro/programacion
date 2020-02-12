@@ -81,7 +81,7 @@ class Connection {
             $connection->exec("SET CHARACTER SET utf8");
             // $sql = "select * from products where id =?;";
             $resultado = $connection->prepare($updateData);
-            // $resultado->execute(array($idConsulta));
+            $resultado->execute($sql);
 
             return $resultado;
         } catch (PDOException $e) {
