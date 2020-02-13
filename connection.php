@@ -68,25 +68,41 @@ class Connection {
         }
     }
 
-    public function update($sql) {
-        $updateData = $sql;;
+    public function update($name,$price,$quantity,$id) {
+        // $updateData = $sql;;
         // $connection = $this->connect();
         // if (isset($connection)){
         //     $connection->exec($updateData);
         // }
 
+        // try {
+        //     // $idConsulta = $idConsulta;
+        //     $connection = $this->connect();
+        //     $connection->exec("SET CHARACTER SET utf8");
+        //     // $sql = "select * from products where id =?;";
+        //     $resultado = $connection->prepare($updateData);
+        //     $resultado->execute($sql);
+
+        //     return $resultado;
+        // } catch (PDOException $e) {
+        //     print_r($e->getMessage());
+        // }   
+
         try {
-            // $idConsulta = $idConsulta;
+            $name = $name;
+            $price = $price;
+            $quantity = $quantity;
+            $id = $id;
             $connection = $this->connect();
             $connection->exec("SET CHARACTER SET utf8");
-            // $sql = "select * from products where id =?;";
-            $resultado = $connection->prepare($updateData);
-            $resultado->execute($sql);
+            $sql = "UPDATE `products` SET `name` = ?, `price` = ?, `quantity` = ? WHERE (`id` = ?);";
+            $resultado = $connection->prepare($sql);
+            $resultado->execute(array($name,$price,$quantity,$id));
 
             return $resultado;
         } catch (PDOException $e) {
             print_r($e->getMessage());
-        }   
+        }
     }
 
     public function consulta($idConsulta) {

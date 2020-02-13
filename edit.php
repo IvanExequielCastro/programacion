@@ -64,7 +64,7 @@ if($sentences === FALSE){
         <div id="respuesta" value="edit"></div>
         </div>
 
-        <script src="Validaciones.js"></script>
         <script src="fetch.js"></script>
+        <script src="Validaciones.js"></script>
     </body>
 </html>

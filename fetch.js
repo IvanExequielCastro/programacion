@@ -1,5 +1,4 @@
 var form = document.getElementById('formulario');
-// var answer = document.getElementById('respuesta');
 var answer = document.getElementById('respuesta').getAttribute("value");
 
 form.addEventListener('submit', function(e){
@@ -18,26 +17,22 @@ form.addEventListener('submit', function(e){
             if(data !== 'error'){
                 location.href="product.php";
             }
-        }
-        );
+        });
         
     }else {
         fetch('put.php',{
             method: 'POST',
             body: datos
         })
-        .then( res => res.json())
+        .then( res => {
+            res.json();
+        })
         .then( data => {
-            console.log(data);
             if(data !== 'error'){
                 location.href="product.php";
             }
-        }
-        );
-
+        });
     }
-
-
 });
 
 
