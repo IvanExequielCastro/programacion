@@ -22,7 +22,7 @@ while($registro=$sentences->fetch(PDO::FETCH_ASSOC)){
 if($sentences === FALSE){
 	echo "No se encontro el id = ".$id;
 	exit();
-}
+};
 
 ?>
 

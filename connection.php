@@ -27,23 +27,6 @@ class Connection {
         fwrite($document,$err);
     }
 
-    public function createSoldProductsTable() {
-        $bool1 = false;
-        $createTableQuery = "CREATE TABLE IF NOT EXISTS sold_products (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        sell_id INT(6)UNSIGNED,
-        NAME VARCHAR(120) NOT NULL,
-        price FLOAT(20,2),
-        date_sell  TIMESTAMP
-        )";
-        $connection = $this->connect();
-        if (isset($connection)){
-            $connection->exec($createTableQuery);
-            $bool1 = true;
-        }
-        return $bool1;
-    }
-
     public function createProducts(){
         $bool1 = false;
         $createTableQuery = "CREATE TABLE IF NOT EXISTS products (
@@ -60,34 +43,24 @@ class Connection {
         return $bool1;
     } 
 
-    public function insert($name="undefined",  $price,$quantity) {
-        $insertData ="insert into products (name,price,quantity) values ('$name','$price','$quantity') ";
-        $connection = $this->connect();
-        if (isset($connection)){
-            $connection->exec($insertData);
+    public function insert($name,$price,$quantity) {
+        try {
+            $name = $name;
+            $price = $price;
+            $quantity = $quantity;
+            $connection = $this->connect();
+            $connection->exec("SET CHARACTER SET utf8");
+            $sql ="INSERT INTO `products` (`name`,`price`,`quantity`) VALUES (?,?,?) ";
+            $resultado = $connection->prepare($sql);
+            $resultado->execute(array($name,$price,$quantity));
+
+            return $resultado;
+        } catch (PDOException $e) {
+            print_r($e->getMessage());
         }
     }
 
     public function update($name,$price,$quantity,$id) {
-        // $updateData = $sql;;
-        // $connection = $this->connect();
-        // if (isset($connection)){
-        //     $connection->exec($updateData);
-        // }
-
-        // try {
-        //     // $idConsulta = $idConsulta;
-        //     $connection = $this->connect();
-        //     $connection->exec("SET CHARACTER SET utf8");
-        //     // $sql = "select * from products where id =?;";
-        //     $resultado = $connection->prepare($updateData);
-        //     $resultado->execute($sql);
-
-        //     return $resultado;
-        // } catch (PDOException $e) {
-        //     print_r($e->getMessage());
-        // }   
-
         try {
             $name = $name;
             $price = $price;
