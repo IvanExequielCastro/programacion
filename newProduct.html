@@ -12,20 +12,20 @@
                 <div>
                     <label for="usuario">Nombre</label>
                     <div>
-                        <input type="text" id="fnamePro" name="name" placeholder="Manzana" onblur="validation()">
+                        <input type="text" name="name" placeholder="Manzana" onchange="validarNombre()">
                     </div>
                 </div>
                 <div>
                     <label for="price">Precio</label>
                     <div>
-                        <input type="text" id="fPrice" onkeypress="return validarNumero(event)" name="price" placeholder="10.00">
+                        <input type="number" name="price" placeholder="10.00">
                         <small>Utilice punto para el decimal</small>
                     </div>
                 </div>
                 <div>
                     <label for="quantity">Cantidad</label>
                     <div>
-                        <input type="text" onkeypress="return validarNumero(event)" name="quantity" placeholder="1">
+                        <input type="number" name="quantity" placeholder="1">
                         <small>Solo numeros enteros</small>
                     </div>
                 </div>
@@ -38,6 +38,6 @@
         </div>
 
         <script src="fetch.js"></script>
-        <script src="Validaciones.js"></script>
+        <script src="validacion.js"></script>
     </body>
 </html>

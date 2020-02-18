@@ -41,19 +41,19 @@ if($sentences === FALSE){
                 <div>
                     <label for="name">Nombre</label>
                     <div>
-                        <input value="<?php echo $name ?>" name="name" onblur="validation()" required type="text" id="fnamePro">
+                        <input value="<?php echo $name ?>" name="name" onchange="validarNombre()" required type="text">
                     </div>
                 </div>
                 <div>
                     <label for="price">Precio</label>
                     <div>
-                        <input value="<?php echo $price ?>" onkeypress="return validarNumero(event)" name="price" required type="text" id="price">
+                        <input value="<?php echo $price ?>" name="price" required type="number">
                     </div>
                 </div>
                 <div>
                     <label for="quantity">Cantidad</label>
                     <div>
-                        <input value="<?php echo $quantity ?>" onkeypress="return validarNumero(event)" name="quantity" required type="text" id="quantity">
+                        <input value="<?php echo $quantity ?>" name="quantity" required type="number">
                     </div>
                 </div>
                 <div>
@@ -65,6 +65,6 @@ if($sentences === FALSE){
         </div>
 
         <script src="fetch.js"></script>
-        <script src="Validaciones.js"></script>
+        <script src="validacion.js"></script>
     </body>
 </html>
