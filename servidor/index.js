@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 
 // Settings
-app.set("port", process.env.PORT || 8000);
+// app.set("port", process.env.PORT || 3000);
+app.set("port", 3000);
 
 // Middlewares
 app.use(express.json());

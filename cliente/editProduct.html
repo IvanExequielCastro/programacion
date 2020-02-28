@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto nuevo</title>
+</head>
+<body onload="load()">
+    <form id="form" action="">
+        <br>
+        <div>
+            <label>Editar producto</label>
+        </div>
+        <br>
+        <div>
+            <input id="name" name="name" type="text" value="" placeholder="Nombre">
+        </div>
+        <br>
+        <div>
+            <input id="price" name="price" type="number" value="" placeholder="Precio">
+        </div>
+        <br>
+        <div>
+            <input id="quantity" name="quantity" type="number" value="" placeholder="Cantidad">
+        </div>
+        <br>
+        <div>
+            <button id="btnSave" value="edit" type="submit">Guardar</button>
+            <button><a href="index.html" style="color: black !important; text-decoration: none;">Cancelar</a></button>
+        </div>
+    </form>
+    <script src="./js/alterData.js"></script>
+    <script src="./js/saveData.js"></script>
+</body>
+</html>
