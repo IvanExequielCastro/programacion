@@ -3,8 +3,7 @@ const router = express.Router();
 
 const connection = require("./database");
 
-router.get("/all/", (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+router.get("/all/", (req, res, next) => {
 
     connection.query("SELECT * FROM products", (err, rows) => {
         if(!err) {
@@ -39,7 +38,9 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/send", (req, res) => {    
+router.post("/send", (req, res, next) => {  
+    next();
+
     const {name, price, quantity} = req.body;
 
     connection.query('INSERT INTO products SET ?', {
@@ -48,7 +49,7 @@ router.post("/send", (req, res) => {
         quantity
     }, (err) => {
         if(!err) {
-            res.redirect("/");
+            // res.redirect("/all");   //TODO : eliminos esto (terminar de eliminar )
         } else {
             console.log(err);
         }
@@ -58,8 +59,6 @@ router.post("/send", (req, res) => {
 router.put("/update/:id", (req, res) => {
     const {name, price, quantity} = req.body;
     const id = req.params.id;
-
-    console.log("id "+id);
 
     connection.query("UPDATE `programacion3`.`products` SET ? WHERE (`id` = '"+id+"')", {
         name,

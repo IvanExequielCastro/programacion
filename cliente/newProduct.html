@@ -8,26 +8,27 @@
     <form id="form" action="">
         <br>
         <div>
-            <label>Nuevo producto</label>
+            <label>Editar producto</label>
         </div>
         <br>
         <div>
-            <input type="text" placeholder="Nombre">
+            <input id="name" name="name" type="text" placeholder="Nombre">
         </div>
         <br>
         <div>
-            <input type="number" placeholder="Precio">
+            <input id="price" name="price" type="number" placeholder="Precio">
         </div>
         <br>
         <div>
-            <input type="number" placeholder="Cantidad">
+            <input id="quantity" name="quantity" type="number" placeholder="Cantidad">
         </div>
         <br>
         <div>
-            <button id="btnSave" value="new" onclick="save()">Guardar</button>
+            <button id="btnSave" value="new" type="submit">Guardar</button>
             <button><a href="index.html" style="color: black !important; text-decoration: none;">Cancelar</a></button>
         </div>
     </form>
     <script src="./js/alterData.js"></script>
+    <script src="./js/saveData.js"></script>
 </body>
 </html>
