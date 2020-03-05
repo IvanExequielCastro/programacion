@@ -1,7 +1,7 @@
 var tabla = document.getElementById("tabla");
 var contenido = "";
 
-fetch("http://localhost:3000/all")
+fetch("http://localhost:4000/all")
 .then(response => {
     return response.json();
 })

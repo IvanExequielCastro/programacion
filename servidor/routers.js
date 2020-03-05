@@ -4,7 +4,7 @@ const router = express.Router();
 const connection = require("./database");
 
 router.get("/all/", (req, res, next) => {
-
+    // next();
     connection.query("SELECT * FROM products", (err, rows) => {
         if(!err) {
             res.json(rows);
@@ -49,7 +49,7 @@ router.post("/send", (req, res, next) => {
         quantity
     }, (err) => {
         if(!err) {
-            // res.redirect("/all");   //TODO : eliminos esto (terminar de eliminar )
+            res.send();
         } else {
             console.log(err);
         }

@@ -14,10 +14,10 @@ form.addEventListener("submit", e => {
 
         var data = { name, price, quantity };
         // debugger;
-        fetch(`http://localhost:3000/send`, {
+        fetch(`http://localhost:4000/send`, {
             method: 'POST',
-            mode : 'cors', //Agregamos mode : cors
-            headers : myHeaders,  //Agregamos headers para parsear json
+            mode : 'cors',
+            headers : myHeaders,
             body: JSON.stringify(data),
         })
             .then(json => {
@@ -37,7 +37,7 @@ form.addEventListener("submit", e => {
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
 
-        fetch(`http://localhost:3000/update/${id}`, {
+        fetch(`http://localhost:4000/update/${id}`, {
             method: 'PUT',
             headers : myHeaders,
             body: JSON.stringify(data)
